@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electronic Nights</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Electronic Nights</title>
     <style>
         body { 
             margin: 0; 
             overflow: hidden; 
             background-color: #000000; 
-            /* This is the "code" font family */
             font-family: 'Courier New', Courier, monospace; 
         }
 
@@ -81,6 +79,41 @@
             font-size: 0.7rem; 
             letter-spacing: 1px;
             text-transform: uppercase;
+        }
+
+        /* --- MOBILE FIXES (Media Query) --- */
+        @media (max-width: 768px) {
+            
+            /* 1. Make the menu wrap to new lines so it fits */
+            .menu-container {
+                flex-wrap: wrap; 
+                gap: 8px; /* Smaller gaps */
+                top: 15px; /* Higher up on the screen */
+                width: 95%; /* Use almost full width */
+                left: 50%;
+                transform: translateX(-50%); /* Center it properly */
+            }
+
+            /* 2. Make buttons smaller */
+            .menu-item {
+                font-size: 0.75rem;
+                padding: 8px 10px;
+                flex: 1 1 auto; /* Allow buttons to grow slightly to fill gaps */
+                text-align: center;
+            }
+
+            /* 3. Fix the Main Title Box */
+            .title-container {
+                width: 85%; /* Don't be wider than the phone screen */
+                padding: 20px; 
+            }
+
+            /* 4. Allow title text to wrap and be smaller */
+            h1 {
+                font-size: 1.5rem; 
+                white-space: normal; /* Let it break into two lines */
+                line-height: 1.2;
+            }
         }
     </style>
 </head>
