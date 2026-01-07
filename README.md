@@ -1,2 +1,1 @@
-# website
-website
+Electronic Nights is the official digital archive for a series of contemporary electronic music concerts curated by Ali Balighi at the Texas Tech University School of Music. Designed with a minimalist, code-inspired aesthetic, the website utilizes HTML5 Canvas and JavaScript to generate a custom, animated background that simulates an organic audio oscilloscope or sound wave. This repository hosts the program details for concerts No. 1 through No. 7, serving as both a historical record of the repertoire performed and an interactive visual portfolio hosted on GitHub Pages.
