@@ -5,8 +5,16 @@
     <link>https://electronicnights.github.io/</link>
     <description>The Concert of Call for Contemporary Electronic Works. Curated by Ali Balighi.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Jan 2026 19:15:00 -0600</lastBuildDate>
+    <lastBuildDate>Wed, 07 Jan 2026 15:32:00 -0600</lastBuildDate>
     <atom:link href="https://electronicnights.github.io/feed.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+        <title>About - Ali Balighi</title>
+        <link>https://electronicnights.github.io/about.html</link>
+        <guid>https://electronicnights.github.io/about.html</guid>
+        <pubDate>Wed, 07 Jan 2026 15:32:00 -0600</pubDate>
+        <description>Curatorial Statement &amp; Bio. 2026, Lubbock, Texas.</description>
+    </item>
 
     <item>
         <title>Electronic Nights No. 7</title>
