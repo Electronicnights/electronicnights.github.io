@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronic Nights</title>
+    <style>
+        body { 
+            margin: 0; 
+            overflow: hidden; 
+            background-color: #000000; 
+            /* This is the "code" font family */
+            font-family: 'Courier New', Courier, monospace; 
+        }
+
+        /* --- THE ART BACKGROUND --- */
+        canvas { 
+            display: block; 
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0; 
+        }
+
+        /* --- THE TOP MENU --- */
+        .menu-container {
+            position: absolute;
+            top: 30px; 
+            width: 100%;
+            display: flex;
+            justify-content: center; 
+            gap: 15px; 
+            z-index: 2; 
+        }
+
+        .menu-item {
+            background-color: #FFFFFF;
+            color: #000000;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            border: 1px solid #ddd;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .menu-item:hover {
+            background-color: #000000;
+            color: #FFFFFF;
+            border-color: #FFFFFF;
+            cursor: pointer;
+        }
+
+        /* --- THE CENTER TITLE --- */
+        .title-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1; 
+            
+            background-color: #FFFFFF; 
+            padding: 30px 50px; 
+            border: 1px solid #ddd;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); 
+            text-align: center; 
+        }
+
+        h1 {
+            margin: 0;
+            color: #000000;
+            font-size: 2.5rem; 
+            font-weight: bold; 
+            white-space: nowrap;
+        }
+
+        .subtitle {
+            margin-top: 8px;
+            color: #333;
+            font-size: 0.7rem; 
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="menu-container">
+        <a href="nr1.html" class="menu-item">&lt;Nr. 1&gt;</a>
+        <a href="nr2.html" class="menu-item">&lt;Nr. 2&gt;</a>
+        <a href="nr3.html" class="menu-item">&lt;Nr. 3&gt;</a>
+        <a href="nr4.html" class="menu-item">&lt;Nr. 4&gt;</a>
+        <a href="nr5.html" class="menu-item">&lt;Nr. 5&gt;</a>
+        <a href="nr6.html" class="menu-item">&lt;Nr. 6&gt;</a>
+        <a href="nr7.html" class="menu-item">&lt;Nr. 7&gt;</a>
+    </nav>
+
+    <canvas id="voiceCanvas"></canvas>
+
+    <div class="title-container">
+        <h1>{Electronic Nights}</h1>
+        <div class="subtitle">Curated by Ali Balighi</div>
+    </div>
+
+<script>
+    const canvas = document.getElementById('voiceCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let width, height;
+    
+    // Colors: Red, Blue, White, Green
+    const colors = ['#FF0000', '#0000FF', '#FFFFFF', '#00FF00']; 
+    
+    const lines = colors.map((color, index) => ({
+        color: color,
+        speedOffset: 1 + (index * 0.15), 
+        noiseOffset: index * 500
+    }));
+
+    let time = 0;
+    let chaosLevel = 0; 
+    let chaosDirection = 0.003;
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+
+    function animate() {
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, width, height);
+
+        chaosLevel += chaosDirection;
+        
+        if (chaosLevel > 1.2) {
+            chaosLevel = 1.2;
+            chaosDirection = -0.001; 
+        } else if (chaosLevel < 0.1) {
+            chaosLevel = 0.1;
+            chaosDirection = 0.004; 
+        }
+
+        time += 0.005 + (chaosLevel * 0.04); 
+
+        lines.forEach((line, i) => {
+            ctx.beginPath();
+            ctx.strokeStyle = line.color;
+            ctx.lineWidth = 1.5;
+
+            for (let x = 0; x < width; x += 5) {
+                const nx = x / width;
+                const envelope = 4 * nx * (1 - nx); 
+
+                const wave1 = Math.sin(x * 0.01 + time * line.speedOffset);
+                const wave2 = Math.sin(x * 0.025 - time * 1.5 + line.noiseOffset);
+                const wave3 = Math.cos(x * 0.05 + time * 3); 
+
+                const combinedWave = wave1 + wave2 + (wave3 * 0.4);
+
+                const amplitude = 40 + (chaosLevel * 250); 
+                
+                const y = (height / 2) + (combinedWave * envelope * amplitude);
+
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    animate();
+</script>
+
+</body>
+</html>

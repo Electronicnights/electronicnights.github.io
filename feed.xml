@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Electronic Nights</title>
+    <link>https://electronicnights.github.io/</link>
+    <description>The Concert of Call for Contemporary Electronic Works. Curated by Ali Balighi.</description>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 06 Jan 2026 19:15:00 -0600</lastBuildDate>
+    <atom:link href="https://electronicnights.github.io/feed.xml" rel="self" type="application/rss+xml" />
+
+    <item>
+        <title>Electronic Nights No. 7</title>
+        <link>https://electronicnights.github.io/nr7.html</link>
+        <guid>https://electronicnights.github.io/nr7.html</guid>
+        <pubDate>Wed, 04 Mar 2026 16:00:00 -0600</pubDate>
+        <description>Curated by Ali Balighi. Texas Tech University School of Music. Date: Wednesday, March 4, 2026.</description>
+    </item>
+
+    <item>
+        <title>Electronic Nights No. 6</title>
+        <link>https://electronicnights.github.io/nr6.html</link>
+        <guid>https://electronicnights.github.io/nr6.html</guid>
+        <pubDate>Wed, 04 Feb 2026 16:00:00 -0600</pubDate>
+        <description>Curated by Ali Balighi. Texas Tech University School of Music. Date: Wednesday, February 4, 2026.</description>
+    </item>
+
+    <item>
+        <title>Electronic Nights No. 5</title>
+        <link>https://electronicnights.github.io/nr5.html</link>
+        <guid>https://electronicnights.github.io/nr5.html</guid>
+        <pubDate>Wed, 29 Oct 2025 16:00:00 -0500</pubDate>
+        <description>Curated by Ali Balighi. Texas Tech University School of Music. Date: Wednesday, October 29, 2025.</description>
+    </item>
+
+    <item>
+        <title>Electronic Nights No. 4</title>
+        <link>https://electronicnights.github.io/nr4.html</link>
+        <guid>https://electronicnights.github.io/nr4.html</guid>
+        <pubDate>Wed, 01 Oct 2025 16:00:00 -0500</pubDate>
+        <description>Curated by Ali Balighi. Texas Tech University School of Music. Date: Wednesday, October 1, 2025.</description>
+    </item>
+
+    <item>
+        <title>Electronic Nights No. 3</title>
+        <link>https://electronicnights.github.io/nr3.html</link>
+        <guid>https://electronicnights.github.io/nr3.html</guid>
+        <pubDate>Wed, 17 Apr 2024 16:00:00 -0500</pubDate>
+        <description>Curated by Ali Balighi. Texas Tech University School of Music. Date: Wednesday, April 17, 2024.</description>
+    </item>
+
+    <item>
+        <title>Electronic Nights No. 2</title>
+        <link>https://electronicnights.github.io/nr2.html</link>
+        <guid>https://electronicnights.github.io/nr2.html</guid>
+        <pubDate>Wed, 21 Feb 2024 16:00:00 -0600</pubDate>
+        <description>Curated by Ali Balighi. Texas Tech University School of Music. Date: Wednesday, February 21, 2024.</description>
+    </item>
+
+    <item>
+        <title>Electronic Nights No. 1</title>
+        <link>https://electronicnights.github.io/nr1.html</link>
+        <guid>https://electronicnights.github.io/nr1.html</guid>
+        <pubDate>Wed, 24 Jan 2024 16:00:00 -0600</pubDate>
+        <description>Curated by Ali Balighi. Texas Tech University School of Music. Date: Wednesday, January 24, 2024.</description>
+    </item>
+
+</channel>
+</rss>

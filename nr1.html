@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronic Nights No. 1</title>
+    <style>
+        body { 
+            margin: 0; 
+            overflow: hidden; 
+            background-color: #000000; 
+            font-family: 'Courier New', Courier, monospace; 
+        }
+
+        /* --- BACKGROUND ART --- */
+        canvas { 
+            display: block; 
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0; 
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .content-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1; 
+            
+            background-color: #FFFFFF; 
+            color: #000000;
+            
+            /* Dimensions */
+            width: 80%;
+            max-width: 700px;
+            max-height: 90vh; /* Prevents it from being too tall for the screen */
+            overflow-y: auto; /* Adds a scrollbar if the list is too long */
+            
+            padding: 40px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.15); 
+            text-align: center;
+        }
+
+        /* Hide scrollbar for Chrome/Safari/Opera */
+        .content-container::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .content-container {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .concert-subtitle {
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #000;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .info-block {
+            font-size: 0.8rem;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        /* --- PROGRAM LIST --- */
+        .program-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            text-align: left;
+            width: 100%;
+        }
+
+        .program-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #ccc;
+            font-size: 0.85rem;
+        }
+
+        .program-item:last-child {
+            border-bottom: none;
+        }
+
+        .piece-name {
+            font-weight: bold;
+        }
+
+        .composer-name {
+            text-align: right;
+        }
+
+        /* --- PDF LINK BUTTON --- */
+        .pdf-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8rem;
+            border: 1px solid #000;
+            transition: all 0.3s ease;
+        }
+
+        .pdf-link:hover {
+            background-color: #fff;
+            color: #000;
+            cursor: pointer;
+        }
+
+        /* Back Button (Top Left) */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.8rem;
+            background: #000;
+            padding: 5px 10px;
+            border: 1px solid #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">&lt; Back</a>
+
+    <canvas id="voiceCanvas"></canvas>
+
+    <div class="content-container">
+        <h1>{Electronic Nights No. 1}</h1>
+        <div class="concert-subtitle">The Concert of Call for Contemporary Electronic Works</div>
+
+        <div class="info-block">
+            <strong>Juries:</strong> Dr. Peter Fischer, Dr. Hideki Isoda,<br>
+            Dr. John Boyle, and Mr. Ali Balighi<br><br>
+            Texas Tech University School of Music<br>
+            Media Production Studio 203<br>
+            Wednesday, January 24, 2024, 4PM
+        </div>
+
+        <ul class="program-list">
+            <li class="program-item">
+                <span class="piece-name">Primor DAion</span>
+                <span class="composer-name">Patrick Reed (b.1991)</span>
+            </li>
+            <li class="program-item">
+                <span class="piece-name">AI Phantasy</span>
+                <span class="composer-name">Panayiotis Kokoras (b.1974)</span>
+            </li>
+            <li class="program-item">
+                <span class="piece-name">KET ZeroOne</span>
+                <span class="composer-name">Arshan Najafi (b.2001)</span>
+            </li>
+            <li class="program-item">
+                <span class="piece-name">Constellations</span>
+                <span class="composer-name">Julian Scordato (b.1983)</span>
+            </li>
+            <li class="program-item">
+                <span class="piece-name">Kowloon</span>
+                <span class="composer-name">Alejandro Brianza (b.1989)</span>
+            </li>
+            <li class="program-item">
+                <span class="piece-name">Nostalgia</span>
+                <span class="composer-name">Dayquan Moeller (b.2001)</span>
+            </li>
+            <li class="program-item">
+                <span class="piece-name">Digital Hymn</span>
+                <span class="composer-name">Masafumi Oda (b.1986)</span>
+            </li>
+            <li class="program-item">
+                <span class="piece-name">Suffering</span>
+                <span class="composer-name">Vesal Javaheri (b.1998)</span>
+            </li>
+            <li class="program-item">
+                <span class="piece-name">Letter to no one</span>
+                <span class="composer-name">Yong Tan (b.1998)</span>
+            </li>
+        </ul>
+
+        <a href="Electronic-Nights - Nr. 1.pdf" class="pdf-link" target="_blank">[Download Program Note]</a>
+    </div>
+
+<script>
+    const canvas = document.getElementById('voiceCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let width, height;
+    
+    // Using the same colors
+    const colors = ['#FF0000', '#0000FF', '#FFFFFF', '#00FF00']; 
+    
+    const lines = colors.map((color, index) => ({
+        color: color,
+        // Slower speed offset than the homepage
+        speedOffset: 0.5 + (index * 0.1), 
+        noiseOffset: index * 500
+    }));
+
+    let time = 0;
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+
+    function animate() {
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, width, height);
+
+        // Slow, constant time progression (No chaos variable here for a calmer look)
+        time += 0.002; 
+
+        lines.forEach((line, i) => {
+            ctx.beginPath();
+            ctx.strokeStyle = line.color;
+            ctx.lineWidth = 1.5;
+
+            for (let x = 0; x < width; x += 5) {
+                const nx = x / width;
+                
+                // Gentler envelope (flatter)
+                const envelope = 3 * nx * (1 - nx); 
+
+                // Waves are slower and lower frequency
+                const wave1 = Math.sin(x * 0.005 + time * line.speedOffset);
+                const wave2 = Math.sin(x * 0.01 - time + line.noiseOffset);
+                
+                // Reduced Amplitude (so it doesn't distract from reading)
+                const amplitude = 60; 
+                
+                const combinedWave = wave1 + wave2;
+                const y = (height / 2) + (combinedWave * envelope * amplitude);
+
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    animate();
+</script>
+
+</body>
+</html>
