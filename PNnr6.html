@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Notes - Electronic Nights Nr. 6</title>
+    <style>
+        body { 
+            margin: 0; 
+            overflow: hidden; 
+            background-color: #000000; 
+            font-family: 'Courier New', Courier, monospace; 
+        }
+
+        /* --- BACKGROUND ART --- */
+        canvas { 
+            display: block; 
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0; 
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .content-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1; 
+            
+            background-color: #FFFFFF; 
+            color: #000000;
+            
+            width: 80%;
+            max-width: 800px; 
+            max-height: 90vh; 
+            overflow-y: auto; 
+            
+            padding: 40px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.15); 
+            text-align: left; 
+        }
+
+        /* Hide scrollbar */
+        .content-container::-webkit-scrollbar { display: none; }
+        .content-container { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* --- TYPOGRAPHY --- */
+        h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+
+        h2.piece-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .composer-header {
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        h3.section-header {
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            border-bottom: 1px dashed #999;
+            display: inline-block;
+        }
+
+        p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* --- NOTE ENTRY LAYOUT --- */
+        .note-entry {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .note-entry:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* Image Styling */
+        .headshot {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 0; /* Square images */
+            float: right;
+            margin-left: 25px;
+            margin-bottom: 15px;
+            border: 3px solid #000;
+            filter: grayscale(100%); 
+            transition: filter 0.3s ease;
+        }
+
+        .headshot:hover {
+            filter: grayscale(0%);
+        }
+
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.8rem;
+            background: #000;
+            padding: 5px 10px;
+            border: 1px solid #fff;
+        }
+        
+        /* Mobile adjustment */
+        @media (max-width: 600px) {
+            .headshot {
+                float: none;
+                display: block;
+                margin: 0 auto 20px auto;
+            }
+            .content-container {
+                padding: 20px;
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">&lt; Back to Info</a>
+
+    <canvas id="voiceCanvas"></canvas>
+
+    <div class="content-container">
+        <h1>Program Notes</h1>
+
+        <div class="note-entry clearfix">
+            <img src="photonr6/Arrell_Headshot.jpg" alt="Chris Arrell" class="headshot">
+            
+            <h2 class="piece-title">Accretion Shock (2025)</h2>
+            <div class="composer-header">Chris Arrell</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                Accretion Shock takes inspiration from systems pushed beyond their limits when sudden and rapid changes exceed the capacity to adapt. Some sections of the piece evolve gradually through delicate, shifting patterns. Others rupture and fragment as accumulated energy overwhelms the musical structure, forcing it to break apart.
+            </p>
+            <p>
+                Coded in the programming environments Csound and OpenMusic (audio) and Processing (video), Accretion Shock incorporates foreground chance-based processes within macro motion processes that determine the overall form of the work. The result is a predetermined yet constantly mutating structure where no two realizations of the code produce identical colors, frequencies, and textural densities.
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                Chris Arrell's invitations include a portrait concert at the Alte Schmiede (Vienna), selection as the featured guest composer for the Pellegrini Festival of New Music (Ball State University), the NEXTET New Music Festival (University of Nevada-Las Vegas), and the AURA New Music Ensemble (University of Texas-Houston). His music has received commissions from Boston Musica Viva, Music at the Anthology, Spivey Hall, Cornell University, Alte Schmiede, and the Fromm Foundation of Harvard University. Arrell is an associate professor at the College of the Holy Cross in Worcester, MA. More at chrisarrell.com.
+            </p>
+        </div>
+
+        <div class="note-entry clearfix">
+            <img src="photonr6/zdulkin_headshot.png" alt="Zac Dulkin" class="headshot">
+            
+            <h2 class="piece-title">How to Tear Yourself Apart (2024)</h2>
+            <div class="composer-header">Zac Dulkin</div>
+            <p style="font-size: 0.8rem; margin-top: -10px;"><em>i. ckit | ii. xeradt | iii. rrende</em></p>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                It was only after I finished <em>how to tear yourself apart</em> that I took stock of how violent it is. In effect, I spent a year shredding my voice in every way imaginable. I didn't intend from the beginning to write a piece about destroying myself, but as I heightened and heightened each processing technique, every road led down the same maximally destructive path. It's interesting that while I sometimes have difficulty listening to this piece for these reasons, when I played it for my seven-year-old cousins, they thought it was really funny.
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                Zac Dulkin is a master's student in music technology at Stanford University.
+            </p>
+        </div>
+
+        <div class="note-entry clearfix">
+            <img src="photonr6/Erik Nyström.jpg" alt="Erik Nyström" class="headshot">
+            
+            <h2 class="piece-title">Unformation (2023)</h2>
+            <div class="composer-header">Erik Nyström</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                Unformation is a composition which might be classified as generative acousmatic computer music. Artificial intelligence, machine listening, and cybernetic structures are used in a semi-autonomous system that runs under live human supervision and generates a unique output at every performance, creating an emergent gestural discourse, as if deriving ‘information’ from noisy, stochastic ‘unformation’. Meanwhile, a human listener may be caught in a similar process of analysis and synthesis within a sonic ecology that is decidedly artificial and unstable. Presented here is a recording of a live studio performance.
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                Erik Nyström is a composer of electroacoustic and computer music. He performs internationally and recurring areas of interest in his practice include spatial texture, synthetic sound, generative algorithms, improvisation and posthuman agency. Nyström’s music is released on empreintes DIGITALes and his writings have appeared in international journals. Nyström studied electroacoustic composition with Denis Smalley at City, University of London, where he obtained a doctorate in 2013. During 2015-18 he was doing research at BEAST (Birmingham Electroacoustic Sound Theatre), University of Birmingham, as Leverhulme Early Career Fellow. He is a Lecturer in Music at City since 2018.
+            </p>
+        </div>
+
+        <div class="note-entry clearfix">
+            <img src="photonr6/Clemens_von_Reusner_RE.jpg" alt="Clemens von Reusner" class="headshot">
+            
+            <h2 class="piece-title">Fleeting Experience (2025)</h2>
+            <div class="composer-header">Clemens von Reusner</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                Electroacoustic, fixed media. The works of German composer Clemens von Reusner are characterised by purely electronically generated sounds and those found in special places and processed in the studio. The work on the sound itself, its arrangement and movement on individual paths in the virtual acoustic spaces of multi-channel loudspeaker configurations are at the centre of his compositional work.
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                Clemens von Reusner is a member of the "Academy of German Music Authors". 2024 he received the Thomas-Seelig-Fixed-Media Prize of the German Society for Electroacoustic Music (DEGEM) for his entire oeuvre. His works have been awarded national and international prizes and they are performed worldwide at renowned international festivals for contemporary music. www.cvr-net.de
+            </p>
+        </div>
+        
+    </div>
+
+<script>
+    const canvas = document.getElementById('voiceCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let width, height;
+    
+    // Same colors as the other pages
+    const colors = ['#FF0000', '#0000FF', '#FFFFFF', '#00FF00']; 
+    
+    const lines = colors.map((color, index) => ({
+        color: color,
+        speedOffset: 0.5 + (index * 0.1), 
+        noiseOffset: index * 500
+    }));
+
+    let time = 0;
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+
+    function animate() {
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, width, height);
+
+        // Gentle, slow movement
+        time += 0.002; 
+
+        lines.forEach((line, i) => {
+            ctx.beginPath();
+            ctx.strokeStyle = line.color;
+            ctx.lineWidth = 1.5;
+
+            for (let x = 0; x < width; x += 5) {
+                const nx = x / width;
+                const envelope = 3 * nx * (1 - nx); 
+
+                const wave1 = Math.sin(x * 0.005 + time * line.speedOffset);
+                const wave2 = Math.sin(x * 0.01 - time + line.noiseOffset);
+                
+                const amplitude = 60; 
+                
+                const combinedWave = wave1 + wave2;
+                const y = (height / 2) + (combinedWave * envelope * amplitude);
+
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    animate();
+</script>
+
+</body>
+</html>
