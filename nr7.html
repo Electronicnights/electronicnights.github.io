@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electronic Nights Nr. 7</title>
+    <title>Electronic Nights No. 7</title>
     <style>
         body { 
             margin: 0; 
@@ -94,6 +94,26 @@
         .piece-name { font-weight: bold; }
         .composer-name { text-align: right; }
 
+        /* --- BUTTON STYLE --- */
+        .pdf-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8rem;
+            border: 1px solid #000;
+            transition: all 0.3s ease;
+        }
+
+        .pdf-link:hover {
+            background-color: #fff;
+            color: #000;
+            cursor: pointer;
+        }
+
         /* Back Button */
         .back-btn {
             position: absolute;
@@ -116,7 +136,7 @@
     <canvas id="voiceCanvas"></canvas>
 
     <div class="content-container">
-        <h1>{Electronic Nights Nr. 7}</h1>
+        <h1>{Electronic Nights No. 7}</h1>
         <div class="concert-subtitle">The Concert of Call for Contemporary Electronic Works</div>
 
         <div class="info-block">
@@ -153,7 +173,9 @@
             </li>
         </ul>
 
-        </div>
+        <a href="https://electronicnights.github.io/PNnr7.html" class="pdf-link">[Program Note]</a>
+
+    </div>
 
 <script>
     const canvas = document.getElementById('voiceCanvas');
