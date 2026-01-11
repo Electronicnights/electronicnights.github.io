@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Notes - Electronic Nights Nr. 7</title>
+    <style>
+        body { 
+            margin: 0; 
+            overflow: hidden; 
+            background-color: #000000; 
+            font-family: 'Courier New', Courier, monospace; 
+        }
+
+        /* --- BACKGROUND ART --- */
+        canvas { 
+            display: block; 
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0; 
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .content-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1; 
+            
+            background-color: #FFFFFF; 
+            color: #000000;
+            
+            width: 80%;
+            max-width: 800px; 
+            max-height: 90vh; 
+            overflow-y: auto; 
+            
+            padding: 40px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.15); 
+            text-align: left; 
+        }
+
+        /* Hide scrollbar */
+        .content-container::-webkit-scrollbar { display: none; }
+        .content-container { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* --- TYPOGRAPHY --- */
+        h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+
+        h2.piece-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .composer-header {
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        h3.section-header {
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            border-bottom: 1px dashed #999;
+            display: inline-block;
+        }
+
+        p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* --- NOTE ENTRY LAYOUT --- */
+        .note-entry {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .note-entry:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* Image Styling */
+        .headshot {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 0; /* Square images */
+            float: right;
+            margin-left: 25px;
+            margin-bottom: 15px;
+            border: 3px solid #000;
+            filter: grayscale(100%); 
+            transition: filter 0.3s ease;
+        }
+
+        .headshot:hover {
+            filter: grayscale(0%);
+        }
+
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.8rem;
+            background: #000;
+            padding: 5px 10px;
+            border: 1px solid #fff;
+        }
+        
+        /* Mobile adjustment */
+        @media (max-width: 600px) {
+            .headshot {
+                float: none;
+                display: block;
+                margin: 0 auto 20px auto;
+            }
+            .content-container {
+                padding: 20px;
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">&lt; Back to Info</a>
+
+    <canvas id="voiceCanvas"></canvas>
+
+    <div class="content-container">
+        <h1>Program Notes</h1>
+
+        <div class="note-entry clearfix">
+            <img src="photonr7/01 - Candra Bangun Setyawan.jpeg" alt="Candra Bangun Setyawan" class="headshot">
+            
+            <h2 class="piece-title">RADJUTAN (2025)</h2>
+            <div class="composer-header">Candra Bangun Setyawan</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                This work adopts a spectromorphological framework as both the analytical and compositional foundation in sound design. This approach positions the dynamic interaction between spectrum, morphology, and spatial dimensions as the main strategy for integrating sonic diversity. The primary aim of this work is to construct sonic aggregates rather than a series of fragmented musical gestures. At the same time, this approach serves as a response to my sense of fatigue toward pre-recorded music practices that tend to emphasize the exploration of timbre and space at the expense of musical quality. Through the exploration of fluid and interrelated sonic diversity, this work seeks to open new perceptual possibilities for the listener, where the boundaries between sonic elements become blurred, forming an ever-changing sonic landscape. Compositionally, each sound material is treated as an integral component within a mutually defining timbral-morphological structure, shaping a sonic texture in which transformations occur continuously and without segmentation.
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                Candra Bangun Setyawan is a composer and researcher in the field of sound studies. His work focuses on fixed-media acousmatic music for loudspeakers, which he uses as a medium to interpret the relationship between space, sound, low frequencies, and the act of listening. Within the field of sound studies, he highlights soundscape research, the dynamics of noise, and how technological interventions such as loudspeakers influence the balance of acoustic ecology while simultaneously shaping the social experiences of communities in East Java, Indonesia.
+            </p>
+        </div>
+
+        <div class="note-entry clearfix">
+            <img src="photonr7/02 - Sami Seif.jpg" alt="Sami Seif" class="headshot">
+            
+            <h2 class="piece-title">Can a Canaanite Put a Qanun in a Canon? (2025)</h2>
+            <div class="composer-header">Sami Seif</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                A qanun, an Arabic zither, serves as the main sound source for this piece. The instrument is time-stretched, reversed, fragmented, and reshaped through layered processing. The recording retains much of the instrument's original tuning, including its microtonal inflections, which are further refracted through transformation. From this material, a mensuration canon emerges. The result is a shifting, spatial texture where repetition fractures and refolds across the field. Like many of my pieces, it reflects how memory often resists sequential recall, how recollection can loop, collide, or fold in on itself even when lived experience moves forward. The form follows that logic.
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                Lebanese composer and music theorist Sami Seif (b. 1998) has been praised as “a distinctive compositional voice” who creates “intoxicating and fascinating soundworld[s]” (Carla Rees, Pan Journal of the British Flute Society). His music is inspired by the aesthetics, philosophies, paradigms and poetry of his Middle-Eastern heritage. His latest musical concerns center around the phenomenology of time and of differing degrees of focus. Originally from the town of Ashkout in Lebanon and is currently pursuing his doctoral studies at the CUNY Graduate Center. Seif’s music has been performed by world-renowned artists and has been recognized internationally by numerous institutions.
+            </p>
+        </div>
+
+        <div class="note-entry clearfix">
+            <img src="photonr7/03 - Ophelia Badretdinova.jpg" alt="Ophelia Badretdinova" class="headshot">
+            
+            <h2 class="piece-title">WANDER (2025)</h2>
+            <div class="composer-header">Ophelia Badretdinova</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                Where do we go when our feelings define all that we are? WANDER is a quadraphonic composition realised as a continuous exploration of a suspended state of being. When we are overcome by the irresistible brutality of intensity and heaviness, there is no space left to process what is happening. Every attempt to move forward only sets you back; you must run twice as fast just to stay in one place. Thus, how far should we travel to recover our true selves?
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                Ophelia is a Tatar storyteller, vocalist, and sound designer based in Boston. Working in multichannel and immersive formats, she explores how perception, language, and emotion dissolve into one another and take on spatial form. Originally trained as a singer in jazz and Tatar traditional music, she is currently pursuing a Bachelor of Music in Electronic Production and Sound Design at Berklee College of Music.
+            </p>
+        </div>
+
+        <div class="note-entry clearfix">
+            <img src="photonr7/04 - David Jason Snow.jpg" alt="David Jason Snow" class="headshot">
+            
+            <h2 class="piece-title">The Emergency Broadcast System</h2>
+            <div class="composer-header">David Jason Snow</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                The Emergency Broadcast System (EBS) was established in 1963 to equip the American government with a secure channel of communication to the public in the event of catastrophic national crisis. Periodic EBS tests on radio and television would interrupt regular programming and subject listeners and viewers to 30 seconds of a brain-piercing shriek (dual sine waves abrading against each other at 853 and 959 Hz), reminding Americans that they were living in the shadow of nuclear annihilation, even as an authoritative voice-over asserted that the exercise "was only a test." My version captures the DADAist absurdity of the program.
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                The compositions of David Jason Snow have been performed in concert by the Ensemble Intercontemporain at the Centre Georges Pompidou in Paris, the Banda Municipal de Bilbao at the Euskalduna Palace in Bilbao, The New Juilliard Ensemble at the Museum of Modern Art in New York, and many other artists and ensembles internationally. His fixed media audio and visual works have been performed at the Musinfo Journées Art & Science Festival in Bourges, the Festival Exhibitronic in Strasbourg, the Festival Internacional de Video Arte y Música Visual in Mexico City, the Sound Thought Festival in Glasgow, and Echofluxx in Prague.
+            </p>
+        </div>
+
+        <div class="note-entry clearfix">
+            <img src="photonr7/05 - Gordon Delap.jpg" alt="Gordon Delap" class="headshot">
+            
+            <h2 class="piece-title">An Insect that Shuns the Light</h2>
+            <div class="composer-header">Gordon Delap</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                Scuttles in pursuit of darkness. Foul-smelling, skin-shedding. A pest of book collections; page-eating, destructive. Ground up with oil, a remedy for earache. Infused in tea as a cure for tetanus. Delicious when fried in a wok. The body flees danger even when the head is removed. This piece draws partial inspiration from various cultural readings on the concept of “no-self” and, to some extent, draws upon an image of scuttling away from this realisation. In An Insect that Shuns the Light, unrelated objects of conflicting scales collide across several episodes, as dense eruptions of activity spiral into a void.
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                Gordon Delap comes from Donegal in Ireland. He is an audiovisual artist and electroacoustic composer. He has undertaken residencies at Nadine Arts Centre in Brussels, Edinburgh University, the Technische Universitaet in Berlin, and SCRIME at the University of Bordeaux. He has worked alongside technical teams in the investigation of creative applications of physical modelling and spatial technologies. His work has won and been selected for several international competitions, and has been played throughout the world. He is currently based in Dublin and teaches at the National University of Ireland Maynooth.
+            </p>
+        </div>
+
+        <div class="note-entry clearfix">
+            <img src="photonr7/06 - Lucas Fuentes Vergara.jpg" alt="Lucas Fuentes Vergara" class="headshot">
+            
+            <h2 class="piece-title">Un dado roído (A gnawed dice)</h2>
+            <div class="composer-header">Lucas Fuentes Vergara</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                Un dado roído (A gnawed dice) is a piece I composed for the newly established AcusmaLab studio inside the Arts Faculty of Universidad de Chile, the first studio in the country with the capability of third order ambisonic reproduction. The title comes from a Cesar Vallejo poem, Los Dados Eternos, and has an acousmatic style inspired by composer and teacher Federico Schumacher. The vast majority of the piece consists of one particular sound source which twists and turns and whose properties orient both the structure of the piece as a whole as well as every emerging musical cell.
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                Lucas Fuentes Vergara is a Chilean sound engineer and composer who specializes in immersive sound and room acoustics. He has worked in designing and building studios for immersive sound, video game sound design, and composition. In composition, he has a special interest for the exploration of recorded sound in an acousmatic style. He has a degree in Sound Engineering from Universidad de Chile.
+            </p>
+        </div>
+        
+    </div>
+
+<script>
+    const canvas = document.getElementById('voiceCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let width, height;
+    
+    // Same colors as the other pages
+    const colors = ['#FF0000', '#0000FF', '#FFFFFF', '#00FF00']; 
+    
+    const lines = colors.map((color, index) => ({
+        color: color,
+        speedOffset: 0.5 + (index * 0.1), 
+        noiseOffset: index * 500
+    }));
+
+    let time = 0;
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+
+    function animate() {
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, width, height);
+
+        // Gentle, slow movement
+        time += 0.002; 
+
+        lines.forEach((line, i) => {
+            ctx.beginPath();
+            ctx.strokeStyle = line.color;
+            ctx.lineWidth = 1.5;
+
+            for (let x = 0; x < width; x += 5) {
+                const nx = x / width;
+                const envelope = 3 * nx * (1 - nx); 
+
+                const wave1 = Math.sin(x * 0.005 + time * line.speedOffset);
+                const wave2 = Math.sin(x * 0.01 - time + line.noiseOffset);
+                
+                const amplitude = 60; 
+                
+                const combinedWave = wave1 + wave2;
+                const y = (height / 2) + (combinedWave * envelope * amplitude);
+
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    animate();
+</script>
+
+</body>
+</html>
