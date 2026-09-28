@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Notes - Electronic Nights Nr. 8</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000000;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* --- BACKGROUND ART --- */
+        canvas {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .content-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+
+            background-color: #FFFFFF;
+            color: #000000;
+
+            width: 80%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+
+            padding: 40px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+            text-align: left;
+        }
+
+        /* Hide scrollbar */
+        .content-container::-webkit-scrollbar { display: none; }
+        .content-container { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* --- TYPOGRAPHY --- */
+        h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+
+        h2.piece-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .composer-header {
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        h3.section-header {
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            border-bottom: 1px dashed #999;
+            display: inline-block;
+        }
+
+        p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* --- NOTE ENTRY LAYOUT --- */
+        .note-entry {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .note-entry:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* Image Styling */
+        .headshot {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 0; /* Square images */
+            float: right;
+            margin-left: 25px;
+            margin-bottom: 15px;
+            border: 3px solid #000;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .headshot:hover {
+            filter: grayscale(0%);
+        }
+
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.8rem;
+            background: #000;
+            padding: 5px 10px;
+            border: 1px solid #fff;
+        }
+
+        /* Mobile adjustment */
+        @media (max-width: 600px) {
+            .headshot {
+                float: none;
+                display: block;
+                margin: 0 auto 20px auto;
+            }
+            .content-container {
+                padding: 20px;
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">&lt; Back to Info</a>
+
+    <canvas id="voiceCanvas"></canvas>
+
+    <div class="content-container">
+        <h1>Program Notes</h1>
+
+        <div class="note-entry clearfix">
+            <img src="photonr8/Michael Schumacher.png" alt="Michael J. Schumacher" class="headshot">
+
+            <h2 class="piece-title">Re:enact</h2>
+            <div class="composer-header">Michael J. Schumacher</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                Re:enact was composed for a video by artist Ronald Amstutz. Having worked, over the years, with many dancers and choreographers, particularly Liz Gerring and Sally Silvers, I've had some experience putting sound to movement. Ron's video was created using stop action photography, every frame is set up in a painstaking process by the artist himself without assistants. I try to walk the thin line between working with and against the visuals; in this case the with won out.
+            </p>
+            <p>
+                The piece unfolds as a changing field of sustained tones, isolated attacks, and bands of noise. Brief events appear against near-silence, leaving resonances exposed. Fragments gradually connect, gathering weight and spectral breadth until the work enters a central mass. Low frequencies provide a shifting foundation while details flit across the quadraphonic field, mimicking the shifting light of Ron's video.
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                Michael J. Schumacher is a Brooklyn-based composer who has worked at the intersection of spatialized sound and algorithmic composition since the late 1980s. He is best known for long-form, multichannel, generative "Room Pieces" presented in galleries, museums, concert halls, and domestic settings. XI Records released a DVD of five of his sound installations as computer applications. Other notable projects include Living Room Pieces, a generative installation for home listening, and the Portable Multichannel Sound System, a suitcase-scale immersive rig with which he has toured the U.S., Europe and Japan. Schumacher's music has been presented by GRM (Paris), Roulette, Issue Project Room, Artists Space, Ostrava Days, Transmediale, Klangraum Krems, and The Dream House, among others. Releases appear on Superpang, XI Records, Sub Rosa, Entr'acte, Quecksilber, and Sedimental.
+            </p>
+        </div>
+
+        <div class="note-entry clearfix">
+            <img src="photonr8/Barry.jpg" alt="Barry Truax" class="headshot">
+
+            <h2 class="piece-title">When The Earth Mourned For Me (2024)</h2>
+            <div class="composer-header">Barry Truax</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                With each passing day, we see evidence of our deteriorating environment and that evokes in us a personal and collective grief. We mourn for the earth, but if we listen to its cries, does it also mourn for us, the instigators of its demise? This piece invites us to listen to the voices of the earth that may emerge even from what we have extracted from it. The journey proceeds in four overlapping sections: Choir, Lament, Anguish, and Threnody.
+            </p>
+            <p>
+                This work, the last in a trilogy of recent pieces, attempts to blur the distinction between natural and human sounds through hybridizing material from both sources, based on three of the primary elements &ndash; water, wind and earth. In the current ecological crisis, we may come to understand ourselves as an integral part of our environment that we need to respect.
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                Barry Truax is a Professor Emeritus in the School of Communication at Simon Fraser University. He worked with the World Soundscape Project, editing its Handbook for Acoustic Ecology, and has published a book Acoustic Communication, that deals with sound and technology. In 1991 his work, Riverrun, was awarded the Magisterium at the International Competition of Electroacoustic Music in Bourges, France. Truax's multi-channel soundscape compositions are frequently featured in concerts around the world. In 2015-16 he was the Edgard Var&egrave;se Guest Professor at the Technical University in Berlin. He was given an Honorary Doctor of Fine Arts in 2025 at SFU. Website: sfu.ca/~truax
+            </p>
+        </div>
+
+        <div class="note-entry clearfix">
+            <img src="photonr8/Zeynep.jpg" alt="Zeynep Özcan" class="headshot">
+
+            <h2 class="piece-title">Cross-Pollination</h2>
+            <div class="composer-header">Zeynep Özcan</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                Cross-Pollination is an electronic music composition inspired by the analogies found in nature's cross-pollination process. Composer blends bee recordings, modular synthesis, and granular synthesis. In the composition, bees play a vital role as carriers of pollen to both the granular synth and the modular synth. Their buzzing becomes the link between nature's cross-pollination and the digital-analog fusion of sounds. As we listen, we are immersed in the sounds the bees create, resonating with the intricate connections between nature and technology. The composition celebrates the interconnectedness of these elements, creating a sonic experience.
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                Dr. Zeynep &Ouml;zcan is an experimental and electronic music composer, sound artist and performer. She is an Assistant Professor and a faculty director of Girls in Music and Technology (GiMaT), Summer Institute and SMART (Sound and Media Art) Lab, at the Department of Performing Arts Technology at the University of Michigan, School of Music, Theatre &amp; Dance. Her creative and scholarly work focuses on software systems for music-making, audio programming, sonification, sensors and microcontrollers, novel interfaces for musical expression, and large-scale interactive installations. Her research explores bio-inspired creativity, artistic sonification, playfulness and failure in performance, and activist art. Her works have been performed and presented internationally at concerts, exhibitions, and conferences, including AES, ICAD, ICMC, ISEA, NIME, NYCEMF, WAC, and ZKM. In 2024, she founded Spaceout International Ambisonics Festival.
+            </p>
+        </div>
+
+        <div class="note-entry clearfix">
+            <img src="photonr8/Eisner.jpg" alt="Guillermo Eisner Sagüés" class="headshot">
+
+            <h2 class="piece-title">Estudio Sobre lo Ínfimo (2025)</h2>
+            <div class="composer-header">Guillermo Eisner Sagüés</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                The work is built from short audio samples of a cello, characterized by limited dynamic range. It uses sound recordings that include unintended noises and extraneous sounds commonly present during instrument recordings. From this "discarded" and "useless" material, the musical composition emerges. The goal is to emphasize what is typically excluded&mdash;those elements we do not want to hear&mdash;while acknowledging that they are still an intrinsic part of sound and music.
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                Guillermo Eisner Sag&uuml;&eacute;s (Uruguay, 1980) holds a Doctor in Music Composition from the Universidad Nacional Aut&oacute;noma de M&eacute;xico (UNAM). He has developed acoustic and electroacoustic concert music, participating in festivals in South America, North America and Europe. In 2021 he released the CD M&uacute;sica para guitarra (Chile Cl&aacute;sico). In 2019 he released the acoustic recording m&uacute;sica de barrio (Cero Records) on CD. In 2017 he premiered the chamber opera Titus at the Teatro Hel&eacute;nico in Mexico City. In 2015 he published the book and CD guitarrer&iacute;as. 10 monotemas para guitarra (Microtono Editions) and premiered the chamber opera La Isla de los peces at the GAM Cultural Center in Santiago (Chile). In the year 2012 he released the electroacoustic music recording habitar el tiempo on CD. Since 2019 he is a full-time professor in the Department of Sound of the Faculty of Arts at the Universidad de Chile.
+            </p>
+        </div>
+
+        <div class="note-entry clearfix">
+            <img src="photonr8/Mikel-Kuehn.jpg" alt="Mikel Kuehn" class="headshot">
+
+            <h2 class="piece-title">Unlocking the Keys (2021)</h2>
+            <div class="composer-header">Mikel Kuehn</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                Unlocking the Keys (2021) is a fixed media Ambisonic work that explores three dimensional sonic space. The title serves as a metaphor for searching out (i.e., "unlocking") the potential of sounds created from recorded piano sources, which start out abstract in nature and fully reveal themselves in the middle of the piece. While the ideal listening experience for this piece is a periphonic sound system (a three dimensional configuration of speakers such as "dome" or 8-channel "cube"), the version provided here (stereo) preserves all of the musical material, mapping it down organically to a two dimensional listening space.
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                The music of American composer Mikel Kuehn (b. 1967) has been described as having "sensuous phrases&hellip; producing an effect of high abstraction turning into decadence," by New York Times critic Paul Griffiths. He has received awards and honorable recognition from ASCAP and BMI, the Chicago Symphony Orchestra, Composers, Inc. (Lee Ettelson Award), the Copland House (Aaron Copland Award), the Destellos Foundation (Argentina), the Alice M. Ditson Fund of Columbia University, Eastman (Hanson and McCurdy Prizes), the Flute New Music Consortium, the Guggenheim Foundation (2014 Fellowship), the League of Composers/ISCM Composers' Competition, the Salvatore Martirano Memorial Composition Contest, the Ohio Arts Council, and the Luigi Russolo Competition (Italy). From 1998 to 2023 Kuehn was Professor of Creative Arts Excellence at Bowling Green State University where he served as director of the MidAmerican Center for Contemporary Music and the Bowling Green New Music Festival from 2007-2010. He received degrees in composition from the Eastman School of Music (PhD, MA) and the University of North Texas (BM) and is author of the computer music application nGen. In fall 2023 he joined the Eastman School of Music composition faculty where he also directs the Electroacoustic Music Studios @ Eastman (EMuSE). Learn more at mikelkuehn.com.
+            </p>
+        </div>
+
+    </div>
+
+<script>
+    const canvas = document.getElementById('voiceCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let width, height;
+
+    // Same colors as the other pages
+    const colors = ['#FF0000', '#0000FF', '#FFFFFF', '#00FF00'];
+
+    const lines = colors.map((color, index) => ({
+        color: color,
+        speedOffset: 0.5 + (index * 0.1),
+        noiseOffset: index * 500
+    }));
+
+    let time = 0;
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+
+    function animate() {
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, width, height);
+
+        // Gentle, slow movement
+        time += 0.002;
+
+        lines.forEach((line, i) => {
+            ctx.beginPath();
+            ctx.strokeStyle = line.color;
+            ctx.lineWidth = 1.5;
+
+            for (let x = 0; x < width; x += 5) {
+                const nx = x / width;
+                const envelope = 3 * nx * (1 - nx);
+
+                const wave1 = Math.sin(x * 0.005 + time * line.speedOffset);
+                const wave2 = Math.sin(x * 0.01 - time + line.noiseOffset);
+
+                const amplitude = 60;
+
+                const combinedWave = wave1 + wave2;
+                const y = (height / 2) + (combinedWave * envelope * amplitude);
+
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    animate();
+</script>
+
+</body>
+</html>
