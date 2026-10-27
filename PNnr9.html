@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Notes - Electronic Nights Nr. 9</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000000;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* --- BACKGROUND ART --- */
+        canvas {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .content-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+
+            background-color: #FFFFFF;
+            color: #000000;
+
+            width: 80%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+
+            padding: 40px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+            text-align: left;
+        }
+
+        /* Hide scrollbar */
+        .content-container::-webkit-scrollbar { display: none; }
+        .content-container { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* --- TYPOGRAPHY --- */
+        h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+
+        h2.piece-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .composer-header {
+            font-size: 1rem;
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        h3.section-header {
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            border-bottom: 1px dashed #999;
+            display: inline-block;
+        }
+
+        p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* --- NOTE ENTRY LAYOUT --- */
+        .note-entry {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .note-entry:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        /* Image Styling */
+        .headshot {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 0; /* Square images */
+            float: right;
+            margin-left: 25px;
+            margin-bottom: 15px;
+            border: 3px solid #000;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .headshot:hover {
+            filter: grayscale(0%);
+        }
+
+        /* Clear floats */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.8rem;
+            background: #000;
+            padding: 5px 10px;
+            border: 1px solid #fff;
+        }
+
+        /* Mobile adjustment */
+        @media (max-width: 600px) {
+            .headshot {
+                float: none;
+                display: block;
+                margin: 0 auto 20px auto;
+            }
+            .content-container {
+                padding: 20px;
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">&lt; Back to Info</a>
+
+    <canvas id="voiceCanvas"></canvas>
+
+    <div class="content-container">
+        <h1>Program Notes</h1>
+
+        <div class="note-entry clearfix">
+            <img src="photonr9/Ewa.jpg" alt="Ewa Trębacz" class="headshot">
+
+            <h2 class="piece-title">Umbrae</h2>
+            <div class="composer-header">Ewa Trębacz</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                "Umbrae" ("Shadows") is a reflection on the fragmented nature of human memory, triggered by distorted shadows of encountered sounds, words and spaces. A half-forgotten poem escaping translation; disembodied scraps of a musical phrases erroneously remembered, filled a soundscape of corroded memories.
+            </p>
+            <p>
+                The composition process reflected this experience. It was based on processes breaking, semi-musical phrases being interrupted halfway through their development, as if human memory suddenly failed. Fragmented scraps of various recording sessions were brought together in unexpected and paradoxical ways, bringing memories of unique and non-replicable moments. The fragmentation was achieved mainly through a decomposition and asynchronous processing of various parts of the Ambisonic soundfield, by applying small variations to different parts of the soundfield, in order to achieve a "shattered glass" effect.
+            </p>
+            <p>
+                "Umbrae" was realized at the University of Washington's Digital Arts and Experimental Media (DXARTS) and premiered at the Ars Electronica Festival in Linz in 2023.
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                Ewa Tr&#281;bacz (pronounced &ldquo;Eva Trembatch&rdquo;) is a Polish-American composer based in Seattle (USA) and Krak&oacute;w (Poland). Collaboration, understood as an exchange of creativity, is essential to her work. Exploring unique interactions between the human subjects and their environment, she often uses space as a catalyst for improvisation, working through ambisonic recording sessions in acoustically compelling spaces.
+            </p>
+            <p>
+                Tr&#281;bacz is a graduate of the Academy of Music in Krak&oacute;w (composition under B. Schaeffer) and holds a Ph.D. in Digital Arts and Experimental Media from the University of Washington in Seattle. Her works have been performed and broadcast worldwide, and have been featured in magazines such as Organised Sound and Neue Zeitschrift f&uuml;r Musik. Her compositions have been included in major international festivals such as Ars Electronica Festival in Linz (Austria), the &ldquo;Warsaw Autumn&rdquo; Festival in Poland, ICMC, SEAMUS, NYCEMF, CIME/ICEM, and many others. Website: <a href="https://ewatrebacz.com/" target="_blank" rel="noopener">ewatrebacz.com</a>
+            </p>
+        </div>
+
+        <div class="note-entry clearfix">
+            <img src="photonr9/Harrison.jpg" alt="Jonty Harrison" class="headshot">
+
+            <h2 class="piece-title">Plato del D&iacute;a (2025) &mdash; 4:10</h2>
+            <div class="composer-header">Jonty Harrison</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                <em>Recording: Restaurante El Tintero, M&aacute;laga-Este, Spain &ndash; 28 September 2018</em>
+            </p>
+            <p>
+                Lunchtime service at El Tintero, a beachside restaurant in M&aacute;laga, Spain. Waiters wander between the tables, carrying trays of small plates which they offer to customers by calling out (singing, even) a description of their contents. At the end of the meal, the empty plates are simply counted to calculate the bill (plus the wine, of course!). It&rsquo;s a good system, offering wonderful entertainment as well as great food!
+            </p>
+            <p>
+                The piece forms part of the <em>Aides&hellip; m&eacute;moires&hellip;</em> project with Pete Stollery, consisting of short form pieces (3-6&rsquo;) made from single field recordings. To visit the project, please go to <a href="https://bit.ly/aidesmemoires" target="_blank" rel="noopener">bit.ly/aidesmemoires</a>
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                Jonty Harrison (born 1952) studied at the University of York (1970-76). He worked at the National Theatre and City University, London (1976-80) before joining the University of Birmingham (1980-2014) where he was Director of the Electroacoustic Music Studios and founder and Director of BEAST (Birmingham ElectroAcoustic Sound Theatre); he is now Emeritus Professor of Composition and Electroacoustic Music. He was Guest Professor of Computer Music at the Technische Universit&auml;t, Berlin (2010) and a Leverhulme Emeritus Fellow (2014-15); since 2014 he has been Compositeur Associ&eacute;, Maison des Arts Sonores/KLANG! Acousmonium, Montpellier, France.
+            </p>
+            <p>
+                He has received numerous commissions (INA-GRM; Bourges; ICMA; MAFILM/Magyar R&aacute;di&oacute;; Arts Council England; Electroacoustic Wales/Bangor University; La Compagnie Pierre Deloche Danse; Maison des Arts Sonores/KLANG! Acousmonium; Thomas Seelig Fixed Media Award/DEGEM; NOW! Festival; BBC) and prizes (Bourges; Ars Electronica; Musica Nova; Destellos; PRS). His works appear on four solo albums (empreintes DIGITALes, Montreal) and several compilations. <a href="http://www.electrocd.com/en/bio/harrison_jo/" target="_blank" rel="noopener">electrocd.com/en/bio/harrison_jo</a>
+            </p>
+        </div>
+
+        <div class="note-entry clearfix">
+            <img src="photonr9/Chin Ting Chan.jpg" alt="Patrick Chin Ting Chan" class="headshot">
+
+            <h2 class="piece-title">Pulse</h2>
+            <div class="composer-header">Patrick Chin Ting Chan</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                Pulse traces the surge and diffusion of electronic currents through the microscopic circuits of a CPU. Electrons, in constant motion, engage in restless exchanges within transistors, where bursts of energy generate pulses that interconnect and convey information. The piece mirrors both the chaotic fragmentation and purposeful flow of these phenomena, revealing the intricate architectures of computation and connectivity. It evokes the electric vitality of the silicon microcosm and the rhythmic drive that animates modern technology and human imagination.
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                Composer Patrick Chin Ting Chan grew up in Hong Kong and came to the United States in 2003. He has been featured in events including Ars Electronica, IRCAM's ManiFeste, ISCM World Music Days, UNESCO International Rostrum of Composers, and Venice Art Biennale, among others. He has worked with ensembles such as City Chamber Orchestra of Hong Kong, Ensemble intercontemporain (France), Ensemble Metamorphosis (Serbia), eighth blackbird (U.S.), Hong Kong New Music Ensemble, Mivos Quartet (U.S.), and New York New Music Ensemble, with performances in more than thirty countries. His scores are published through BabelScores and Universal Edition. He is also an active performer and improviser of accordion, guqin, as well as live electronics using a Eurorack modular system and other custom interfaces on the computer. He is currently an Associate Professor of Music Composition at Ball State University. <a href="http://www.chintingchan.com" target="_blank" rel="noopener">chintingchan.com</a>
+            </p>
+        </div>
+
+        <div class="note-entry clearfix">
+            <img src="photonr9/Jon Bellona.jpg" alt="Jon Bellona" class="headshot">
+
+            <h2 class="piece-title">Let It Rip!</h2>
+            <div class="composer-header">Jon Bellona</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                My son enjoys playing Bey Blades, which are spinning toys that bang and smash into one another within a plastic made arena. I spent countless hours with my son spinning away, where he often cajoled me into playing whenever his friends were not available. Easily enough, I found myself immersed in his imagined world of Beys.
+            </p>
+            <p>
+                Typical play pits two Beys against each other in a "battle," where the longest standing wins. Recording sounds from these toys during game play and descriptions my son gave of imagined sound worlds, I curiously followed his interest and the dichotomy between the real and the imaginary. These threads helped form the backbone of the piece, in which I travel back and forth between realistic game play and constructed hyper real sound of cinematic action/tournaments. "Let it Rip!" intertwines the playfulness, competitive nature, and the theatre of these toys and their action.
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                Jon Bellona is a sound artist who crafts data driven sounds and composes for concert + media. Jon&rsquo;s music and performances on custom-built digital musical instruments have been programmed by the International Computer Music Conference (ICMC), the International Conference on New Interfaces for Musical Expression (NIME), the Kyma International Sound Symposium, the Intel UX Symposium, and the Society of Electro-Acoustic Music in the United States (SEAMUS). Jon&rsquo;s multimedia and sound art installations have been exhibited in the Smithsonian Museum of American History, SPRING/BREAK in NYC, the High Desert Museum, as well as galleries in NY, VA, ME, and OR. Jon&rsquo;s sonification work has been funded by the National Science Foundation (NSF) and mentioned in the LA Times. Jon is currently an Assistant Professor in Music Technology at the University of Oregon and is a co-director of Harmonic Laboratory, an interdisciplinary arts collective focused on art and technology collaborations.
+            </p>
+        </div>
+
+        <div class="note-entry clearfix">
+            <img src="photonr9/Rodrigo Pascale.JPG" alt="Rodrigo Pascale" class="headshot">
+
+            <h2 class="piece-title">Discontinuous Mediation III</h2>
+            <div class="composer-header">Rodrigo Pascale</div>
+
+            <h3 class="section-header">Program Note</h3>
+            <p>
+                Discontinuous Mediation III is the third composition of this series. Unlike the first and second compositions, in which pre-recorded guitar and clarinet sounds were used, here pre-recorded viola sounds are used as sonic material. However, this composition has many similarities with its predecessor in terms of the conceptual environment and planning. As in "Discontinuous Mediation I" and "Discontinuous Mediation II," the sounds were organized in a segmented way, which was responsible for forming a structure based on my compositional procedure. This method was applied to explore the conceptual idea of a perceptually continuous world being interpreted by discrete mediation.
+            </p>
+
+            <h3 class="section-header">Bio</h3>
+            <p>
+                Rodrigo Pascale (b. 1996) is an internationally awarded Brazilian composer based in the United States. He holds a DMA in composition from the Peabody Institute of Johns Hopkins University, studying under Felipe Lara. His music has been performed worldwide by leading ensembles such as JACK Quartet, International Contemporary Ensemble, MCME, Splinter Reeds, loadbang, Hypercube, Hinge Ensemble, and Sound Icon. A Nominee for the Gaudeamus Award 2026, he has received the Residency Prix CIME 2025, the Prix d&rsquo;&Eacute;t&eacute; 1st Prize, the Robert G. Fisk Award, and other honors, with works featured at major international festivals.
+            </p>
+        </div>
+
+    </div>
+
+<script>
+    const canvas = document.getElementById('voiceCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let width, height;
+
+    // Same colors as the other pages
+    const colors = ['#FF0000', '#0000FF', '#FFFFFF', '#00FF00'];
+
+    const lines = colors.map((color, index) => ({
+        color: color,
+        speedOffset: 0.5 + (index * 0.1),
+        noiseOffset: index * 500
+    }));
+
+    let time = 0;
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+
+    function animate() {
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, width, height);
+
+        // Gentle, slow movement
+        time += 0.002;
+
+        lines.forEach((line, i) => {
+            ctx.beginPath();
+            ctx.strokeStyle = line.color;
+            ctx.lineWidth = 1.5;
+
+            for (let x = 0; x < width; x += 5) {
+                const nx = x / width;
+                const envelope = 3 * nx * (1 - nx);
+
+                const wave1 = Math.sin(x * 0.005 + time * line.speedOffset);
+                const wave2 = Math.sin(x * 0.01 - time + line.noiseOffset);
+
+                const amplitude = 60;
+
+                const combinedWave = wave1 + wave2;
+                const y = (height / 2) + (combinedWave * envelope * amplitude);
+
+                if (x === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    animate();
+</script>
+
+</body>
+</html>
